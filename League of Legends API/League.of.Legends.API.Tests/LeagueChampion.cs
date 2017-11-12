@@ -7,7 +7,7 @@ namespace League.of.Legends.API.Tests
     [TestClass]
     public class LeagueChampion
     {
-        private const string apiKey = "RGAPI-d26891f6-9d2b-442e-b744-9d2c1e0945f0";
+        private const string apiKey = "RGAPI-9351952b-4d49-4676-a031-f30084e2dfb0";
         private const Region region = Region.EUW1;
 
         private LeagueService leagueService = new LeagueService(apiKey, region);

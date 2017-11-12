@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.105.2.3\lib\net452\RestSharp.dll</HintPath>
     </Reference>
@@ -44,14 +47,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\Champion.cs" />
+    <Compile Include="Domain\ChampionDetailsData.cs" />
     <Compile Include="Domain\ChampionMastery.cs" />
+    <Compile Include="Domain\ItemData.cs" />
+    <Compile Include="Domain\LanguageStringsData.cs" />
     <Compile Include="Domain\League.cs" />
+    <Compile Include="Domain\Locale.cs" />
+    <Compile Include="Domain\MapData.cs" />
+    <Compile Include="Domain\MasteryData.cs" />
+    <Compile Include="Domain\ProfileIconData.cs" />
     <Compile Include="Domain\QueueType.cs" />
+    <Compile Include="Domain\Realm.cs" />
     <Compile Include="Domain\Region.cs" />
+    <Compile Include="Domain\RuneData.cs" />
+    <Compile Include="Domain\Tags.cs" />
     <Compile Include="LeagueChampion.cs" />
     <Compile Include="LeagueChampionMastery.cs" />
     <Compile Include="LeagueLeague.cs" />
     <Compile Include="LeagueService.cs" />
+    <Compile Include="LeagueStaticData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

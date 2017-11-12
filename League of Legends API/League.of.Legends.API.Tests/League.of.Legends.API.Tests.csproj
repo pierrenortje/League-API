@@ -51,6 +51,7 @@
     <Compile Include="LeagueChampion.cs" />
     <Compile Include="LeagueChampionMastery.cs" />
     <Compile Include="LeagueLeague.cs" />
+    <Compile Include="LeagueStaticData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
