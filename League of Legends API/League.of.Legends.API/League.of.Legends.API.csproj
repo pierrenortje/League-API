@@ -55,17 +55,22 @@
     <Compile Include="Domain\Locale.cs" />
     <Compile Include="Domain\MapData.cs" />
     <Compile Include="Domain\MasteryData.cs" />
+    <Compile Include="Domain\MasteryPagesData.cs" />
     <Compile Include="Domain\ProfileIconData.cs" />
     <Compile Include="Domain\QueueType.cs" />
     <Compile Include="Domain\Realm.cs" />
     <Compile Include="Domain\Region.cs" />
     <Compile Include="Domain\RuneData.cs" />
+    <Compile Include="Domain\ShardStatus.cs" />
+    <Compile Include="Domain\SummonerSpellData.cs" />
     <Compile Include="Domain\Tags.cs" />
     <Compile Include="LeagueChampion.cs" />
     <Compile Include="LeagueChampionMastery.cs" />
     <Compile Include="LeagueLeague.cs" />
+    <Compile Include="LeagueMasteries.cs" />
     <Compile Include="LeagueService.cs" />
     <Compile Include="LeagueStaticData.cs" />
+    <Compile Include="LeagueStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
