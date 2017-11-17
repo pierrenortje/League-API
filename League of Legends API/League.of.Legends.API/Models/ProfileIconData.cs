@@ -1,6 +1,6 @@
 ﻿using RestSharp.Deserializers;
 
-namespace League.of.Legends.API.Domain
+namespace League.of.Legends.API.Models
 {
     public class ProfileIconData
     {

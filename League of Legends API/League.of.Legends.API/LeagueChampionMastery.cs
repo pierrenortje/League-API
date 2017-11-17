@@ -1,4 +1,4 @@
-﻿using League.of.Legends.API.Domain;
+﻿using League.of.Legends.API.Models;
 using RestSharp;
 using System.Threading.Tasks;
 

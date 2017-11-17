@@ -1,4 +1,4 @@
-﻿namespace League.of.Legends.API.Domain
+﻿namespace League.of.Legends.API.Models
 {
     public enum ChampionListTags
     {

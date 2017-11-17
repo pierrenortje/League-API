@@ -2,7 +2,7 @@
 using RestSharp.Deserializers;
 using System.Collections.Generic;
 
-namespace League.of.Legends.API.Domain
+namespace League.of.Legends.API.Models
 {
     public class MapData
     {

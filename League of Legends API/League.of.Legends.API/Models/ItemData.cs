@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace League.of.Legends.API.Domain
+namespace League.of.Legends.API.Models
 {
     public class ItemData
     {
