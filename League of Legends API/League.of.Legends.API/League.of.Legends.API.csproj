@@ -46,35 +46,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IChampionMasteryRequest.cs" />
+    <Compile Include="Interfaces\IChampionRequest.cs" />
+    <Compile Include="Interfaces\ILeagueRequest.cs" />
+    <Compile Include="Interfaces\IMasteriesRequest.cs" />
+    <Compile Include="Interfaces\IMatchRequest.cs" />
+    <Compile Include="Interfaces\IStaticDataRequest.cs" />
+    <Compile Include="Interfaces\IStatusRequest.cs" />
+    <Compile Include="Models\LeagueListDto.cs" />
+    <Compile Include="Requests\MatchRequest.cs" />
     <Compile Include="Models\Champion.cs" />
-    <Compile Include="Models\ChampionDetailsData.cs" />
-    <Compile Include="Models\ChampionMastery.cs" />
-    <Compile Include="Models\ItemData.cs" />
-    <Compile Include="Models\LanguageStringsData.cs" />
-    <Compile Include="Models\League.cs" />
+    <Compile Include="Models\ChampionListDto.cs" />
+    <Compile Include="Models\ChampionMasteryDto.cs" />
+    <Compile Include="Models\ItemListDto.cs" />
+    <Compile Include="Models\LanguageStringsDto.cs" />
     <Compile Include="Models\Locale.cs" />
-    <Compile Include="Models\MapData.cs" />
-    <Compile Include="Models\MasteryData.cs" />
-    <Compile Include="Models\MasteryPagesData.cs" />
-    <Compile Include="Models\ProfileIconData.cs" />
+    <Compile Include="Models\MapDataDto.cs" />
+    <Compile Include="Models\MasteryListDto.cs" />
+    <Compile Include="Models\MasteryPagesDto.cs" />
+    <Compile Include="Models\MatchDto.cs" />
+    <Compile Include="Models\MatchlistDto.cs" />
+    <Compile Include="Models\MatchTimelineDto.cs" />
+    <Compile Include="Models\ProfileIconDataDto.cs" />
     <Compile Include="Models\QueueType.cs" />
     <Compile Include="Models\Realm.cs" />
     <Compile Include="Models\Region.cs" />
-    <Compile Include="Models\RuneData.cs" />
+    <Compile Include="Models\RuneListDto.cs" />
     <Compile Include="Models\ShardStatus.cs" />
-    <Compile Include="Models\SummonerSpellData.cs" />
+    <Compile Include="Models\SummonerSpellListDto.cs" />
     <Compile Include="Models\Tags.cs" />
-    <Compile Include="LeagueChampion.cs" />
-    <Compile Include="LeagueChampionMastery.cs" />
-    <Compile Include="LeagueLeague.cs" />
-    <Compile Include="LeagueMasteries.cs" />
-    <Compile Include="LeagueService.cs" />
-    <Compile Include="LeagueStaticData.cs" />
-    <Compile Include="LeagueStatus.cs" />
+    <Compile Include="Requests\ChampionRequest.cs" />
+    <Compile Include="Requests\ChampionMasteryRequest.cs" />
+    <Compile Include="Requests\LeagueRequest.cs" />
+    <Compile Include="Requests\MasteriesRequest.cs" />
+    <Compile Include="ApiRequest.cs" />
+    <Compile Include="Requests\StaticDataRequest.cs" />
+    <Compile Include="Requests\StatusRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\RequestBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

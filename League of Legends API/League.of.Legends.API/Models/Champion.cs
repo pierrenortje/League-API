@@ -42,7 +42,7 @@ namespace League.of.Legends.API.Models
         public int ID { get; set; }
     }
 
-    public class ChampionRoot
+    public class ChampionData
     {
         [DeserializeAs(Name = "champions")]
         public List<Champion> Champions { get; set; }

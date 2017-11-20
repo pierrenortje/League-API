@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace League.of.Legends.API.Models
 {
-    public class SummonerSpellData
+    public class SummonerSpellListDto
     {
         [JsonProperty(PropertyName = "data")]
-        public Dictionary<string, Rune> Data { get; set; }
+        public Dictionary<string, RuneDto> Data { get; set; }
 
         [JsonProperty(PropertyName = "version")]
         public string Version { get; set; }
@@ -15,13 +15,13 @@ namespace League.of.Legends.API.Models
         public string Type { get; set; }
     }
 
-    public class SummonerSpell
+    public class SummonerSpellDto
     {
         [JsonProperty(PropertyName = "vars")]
-        public ChampionSpellVars Vars { get; set; }
+        public SpellVarsDtoList Vars { get; set; }
 
         [JsonProperty(PropertyName = "image")]
-        public Image Image { get; set; }
+        public ImageDto Image { get; set; }
 
         [JsonProperty(PropertyName = "costBurn")]
         public string CostBurn { get; set; }
@@ -60,7 +60,7 @@ namespace League.of.Legends.API.Models
         public string Key { get; set; }
 
         [JsonProperty(PropertyName = "leveltip")]
-        public LevelTip Leveltip { get; set; }
+        public LevelTipDto Leveltip { get; set; }
 
         [JsonProperty(PropertyName = "modes")]
         public List<string> Modes { get; set; }

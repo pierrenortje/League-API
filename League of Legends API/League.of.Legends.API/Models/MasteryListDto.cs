@@ -3,22 +3,22 @@ using System.Collections.Generic;
 
 namespace League.of.Legends.API.Models
 {
-    public class MasteryData
+    public class MasteryListDto
     {
         [JsonProperty(PropertyName = "data")]
-        public Dictionary<string, Item> Data { get; set; }
+        public Dictionary<string, ItemDto> Data { get; set; }
 
         [JsonProperty(PropertyName = "version")]
         public string Version { get; set; }
 
         [JsonProperty(PropertyName = "tree")]
-        public ItemTrees Trees { get; set; }
+        public ItemTreeDtoList Trees { get; set; }
 
         [JsonProperty(PropertyName = "type")]
         public string Type { get; set; }
     }
 
-    public class Mastery
+    public class MasteryDto
     {
         [JsonProperty(PropertyName = "prereq")]
         public string Prereq { get; set; }
@@ -33,7 +33,7 @@ namespace League.of.Legends.API.Models
         public int Ranks { get; set; }
 
         [JsonProperty(PropertyName = "image")]
-        public Image Image { get; set; }
+        public ImageDto Image { get; set; }
 
         [JsonProperty(PropertyName = "sanitizedDescription")]
         public List<string> SanitizedDescription { get; set; }
@@ -45,13 +45,13 @@ namespace League.of.Legends.API.Models
         public List<string> description { get; set; }
     }
 
-    public class MasteryTreeList
+    public class MasteryTreeListDto
     {
         [JsonProperty(PropertyName = "masteryTreeItems")]
-        public MasteryTreeItems MasteryTreeItems { get; set; }
+        public MasteryTreeItemDtoList MasteryTreeItems { get; set; }
     }
 
-    public class MasteryTreeItem
+    public class MasteryTreeItemDto
     {
         [JsonProperty(PropertyName = "masteryId")]
         public int MasteryId { get; set; }
@@ -59,5 +59,5 @@ namespace League.of.Legends.API.Models
         [JsonProperty(PropertyName = "prereq")]
         public string Prereq { get; set; }
     }
-    public class MasteryTreeItems : List<MasteryTreeItem> { }
+    public class MasteryTreeItemDtoList : List<MasteryTreeItemDto> { }
 }

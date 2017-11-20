@@ -2,10 +2,10 @@
 
 namespace League.of.Legends.API.Models
 {
-    public class ProfileIconData
+    public class ProfileIconDataDto
     {
         [DeserializeAs(Name = "data")]
-        public ProfileIcon Data { get; set; }
+        public ProfileIconDetailsDto Data { get; set; }
 
         [DeserializeAs(Name = "type")]
         public string Type { get; set; }
@@ -14,10 +14,10 @@ namespace League.of.Legends.API.Models
         public string Version { get; set; }
     }
 
-    public class ProfileIcon
+    public class ProfileIconDetailsDto
     {
         [DeserializeAs(Name = "image")]
-        public Image Image { get; set; }
+        public ImageDto Image { get; set; }
 
         [DeserializeAs(Name = "id")]
         public long ID { get; set; }

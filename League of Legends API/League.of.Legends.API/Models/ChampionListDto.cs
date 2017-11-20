@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace League.of.Legends.API.Models
 {
-    public class ChampionDetailsData
+    public class ChampionListDto
     {
         [JsonProperty(PropertyName = "keys")]
         public Dictionary<string, string> Keys { get; set; }
@@ -15,22 +15,22 @@ namespace League.of.Legends.API.Models
         public string Version { get; set; }
 
         [JsonProperty(PropertyName = "data")]
-        public Dictionary<string, ChampionDetails> Data { get; set; }
+        public Dictionary<string, ChampionDto> Data { get; set; }
 
         [JsonProperty(PropertyName = "format")]
         public string Format { get; set; }
     }
 
-    public class ChampionDetails
+    public class ChampionDto
     {
         [JsonProperty(PropertyName = "info")]
-        public ChampionInfo Info { get; set; }
+        public InfoDto Info { get; set; }
 
         [JsonProperty(PropertyName = "enemytips")]
         public List<string> EnemyTips { get; set; }
 
         [JsonProperty(PropertyName = "stats")]
-        public ChampionStats Stats { get; set; }
+        public StatsDto Stats { get; set; }
 
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
@@ -39,7 +39,7 @@ namespace League.of.Legends.API.Models
         public string Title { get; set; }
 
         [JsonProperty(PropertyName = "image")]
-        public Image Image { get; set; }
+        public ImageDto Image { get; set; }
 
         [JsonProperty(PropertyName = "tags")]
         public List<string> Tags { get; set; }
@@ -48,13 +48,13 @@ namespace League.of.Legends.API.Models
         public string ParType { get; set; }
 
         [JsonProperty(PropertyName = "skins")]
-        public ChampionSkins Skins { get; set; }
+        public SkinDtoList Skins { get; set; }
 
         [JsonProperty(PropertyName = "passive")]
-        public ChampionPassive Passive { get; set; }
+        public PassiveDto Passive { get; set; }
 
         [JsonProperty(PropertyName = "recommended")]
-        public ChampionRecommendedList RecommendedList { get; set; }
+        public RecommendedDtoList RecommendedList { get; set; }
 
         [JsonProperty(PropertyName = "allytips")]
         public List<string> Allytips { get; set; }
@@ -75,7 +75,7 @@ namespace League.of.Legends.API.Models
         public ChampionSpells Spells { get; set; }
     }
 
-    public class ChampionInfo
+    public class InfoDto
     {
         [JsonProperty(PropertyName = "difficulty")]
         public int Difficulty { get; set; }
@@ -90,7 +90,7 @@ namespace League.of.Legends.API.Models
         public int Magic { get; set; }
     }
 
-    public class ChampionStats
+    public class StatsDto
     {
         [JsonProperty(PropertyName = "armorperlevel")]
         public double ArmorPerLevel { get; set; }
@@ -153,7 +153,7 @@ namespace League.of.Legends.API.Models
         public double CritPerLevel { get; set; }
     }
 
-    public class Image
+    public class ImageDto
     {
         [JsonProperty(PropertyName = "full")]
         public string Full { get; set; }
@@ -176,9 +176,9 @@ namespace League.of.Legends.API.Models
         [JsonProperty(PropertyName = "x")]
         public int X { get; set; }
     }
-    public class Images : List<Image> { }
+    public class ImageDtoList : List<ImageDto> { }
 
-    public class ChampionSkin
+    public class SkinDto
     {
         [JsonProperty(PropertyName = "num")]
         public string Num { get; set; }
@@ -189,12 +189,12 @@ namespace League.of.Legends.API.Models
         [JsonProperty(PropertyName = "id")]
         public string ID { get; set; }
     }
-    public class ChampionSkins : List<ChampionSkin> { }
+    public class SkinDtoList : List<SkinDto> { }
 
-    public class ChampionPassive
+    public class PassiveDto
     {
         [JsonProperty(PropertyName = "image")]
-        public Image Image { get; set; }
+        public ImageDto Image { get; set; }
 
         [JsonProperty(PropertyName = "sanitizedDescription")]
         public string SanitizedDescription { get; set; }
@@ -206,13 +206,13 @@ namespace League.of.Legends.API.Models
         public string Description { get; set; }
     }
 
-    public class ChampionRecommended
+    public class RecommendedDto
     {
         [JsonProperty(PropertyName = "map")]
         public string Map { get; set; }
 
         [JsonProperty(PropertyName = "blocks")]
-        public ChampionBlocks Blocks { get; set; }
+        public BlockDtoList Blocks { get; set; }
 
         [JsonProperty(PropertyName = "champion")]
         public string Champion { get; set; }
@@ -229,7 +229,7 @@ namespace League.of.Legends.API.Models
         [JsonProperty(PropertyName = "type")]
         public string Type { get; set; }
     }
-    public class ChampionRecommendedList : List<ChampionRecommended> { }
+    public class RecommendedDtoList : List<RecommendedDto> { }
 
     public class ChampionSpell
     {
@@ -240,16 +240,16 @@ namespace League.of.Legends.API.Models
         public string Resource { get; set; }
 
         [JsonProperty(PropertyName = "leveltip")]
-        public LevelTip Leveltip { get; set; }
+        public LevelTipDto Leveltip { get; set; }
 
         [JsonProperty(PropertyName = "vars")]
-        public ChampionSpellVars Vars { get; set; }
+        public SpellVarsDtoList Vars { get; set; }
 
         [JsonProperty(PropertyName = "costType")]
         public string CostType { get; set; }
 
         [JsonProperty(PropertyName = "image")]
-        public Image Image { get; set; }
+        public ImageDto Image { get; set; }
 
         [JsonProperty(PropertyName = "sanitizedDescription")]
         public string SanitizedDescription { get; set; }
@@ -291,17 +291,17 @@ namespace League.of.Legends.API.Models
         public List<string> EffectBurn { get; set; }
 
         [JsonProperty(PropertyName = "altimages")]
-        public Images Altimages { get; set; }
+        public ImageDtoList Altimages { get; set; }
 
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
     }
     public class ChampionSpells : List<ChampionSpell> { }
 
-    public class ChampionBlock
+    public class BlockDto
     {
         [JsonProperty(PropertyName = "items")]
-        public ChampionBlockItems Items { get; set; }
+        public BlockItemDtoList Items { get; set; }
 
         [JsonProperty(PropertyName = "recMath")]
         public bool RecMath { get; set; }
@@ -309,9 +309,9 @@ namespace League.of.Legends.API.Models
         [JsonProperty(PropertyName = "type")]
         public string Type { get; set; }
     }
-    public class ChampionBlocks : List<ChampionBlock> { }
+    public class BlockDtoList : List<BlockDto> { }
 
-    public class ChampionBlockItem
+    public class BlockItemDto
     {
         [JsonProperty(PropertyName = "count")]
         public int Count { get; set; }
@@ -319,9 +319,9 @@ namespace League.of.Legends.API.Models
         [JsonProperty(PropertyName = "id")]
         public int ID { get; set; }
     }
-    public class ChampionBlockItems : List<ChampionBlockItem> { }
+    public class BlockItemDtoList : List<BlockItemDto> { }
 
-    public class LevelTip
+    public class LevelTipDto
     {
         [JsonProperty(PropertyName = "effect")]
         public List<string> Effect { get; set; }
@@ -330,7 +330,7 @@ namespace League.of.Legends.API.Models
         public List<string> Label { get; set; }
     }
 
-    public class ChampionSpellVar
+    public class SpellVarsDto
     {
         [JsonProperty(PropertyName = "ranksWith")]
         public string RanksWith { get; set; }
@@ -347,5 +347,5 @@ namespace League.of.Legends.API.Models
         [JsonProperty(PropertyName = "key")]
         public string Key { get; set; }
     }
-    public class ChampionSpellVars : List<ChampionSpellVar> { }
+    public class SpellVarsDtoList : List<SpellVarsDto> { }
 }

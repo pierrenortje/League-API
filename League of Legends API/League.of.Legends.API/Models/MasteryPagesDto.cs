@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace League.of.Legends.API.Models
 {
-    public class MasteryPagesData
+    public class MasteryPagesDto
     {
         /// <summary>
         /// Collection of mastery pages associated with the summoner.
@@ -18,7 +18,7 @@ namespace League.of.Legends.API.Models
         public long SummonerId { get; set; }
     }
 
-    public class MasteryPage
+    public class MasteryPageDto
     {
         /// <summary>
         /// Indicates if the mastery page is the current mastery page.
@@ -44,9 +44,9 @@ namespace League.of.Legends.API.Models
         [DeserializeAs(Name = "id")]
         public long ID { get; set; }
     }
-    public class MasteryPages : List<MasteryPage> { }
+    public class MasteryPages : List<MasteryPageDto> { }
 
-    public class Mastery
+    public class MasteryItem
     {
         /// <summary>
         /// Mastery ID. For static information correlating to masteries,
@@ -61,5 +61,5 @@ namespace League.of.Legends.API.Models
         [DeserializeAs(Name = "rank")]
         public int Rank { get; set; }
     }
-    public class Masteries : List<Mastery> { }
+    public class Masteries : List<MasteryItem> { }
 }

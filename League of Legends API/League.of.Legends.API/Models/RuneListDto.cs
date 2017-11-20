@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace League.of.Legends.API.Models
 {
-    public class RuneData
+    public class RuneListDto
     {
         [JsonProperty(PropertyName = "data")]
-        public Dictionary<string, Rune> Data { get; set; }
+        public Dictionary<string, RuneDto> Data { get; set; }
 
         [JsonProperty(PropertyName = "version")]
         public string Version { get; set; }
@@ -15,10 +15,10 @@ namespace League.of.Legends.API.Models
         public string Type { get; set; }
     }
 
-    public class Rune
+    public class RuneDto
     {
         [JsonProperty(PropertyName = "stats")]
-        public RuneStats Stats { get; set; }
+        public RuneStatsDto Stats { get; set; }
 
         [JsonProperty(PropertyName = "type")]
         public string Name { get; set; }
@@ -27,13 +27,13 @@ namespace League.of.Legends.API.Models
         public List<string> Tags { get; set; }
 
         [JsonProperty(PropertyName = "image")]
-        public Image Image { get; set; }
+        public ImageDto Image { get; set; }
 
         [JsonProperty(PropertyName = "sanitizedDescription")]
         public string SanitizedDescription { get; set; }
 
         [JsonProperty(PropertyName = "rune")]
-        public MetaData RuneData { get; set; }
+        public MetaDataDto RuneData { get; set; }
 
         [JsonProperty(PropertyName = "id")]
         public int ID { get; set; }
@@ -42,7 +42,7 @@ namespace League.of.Legends.API.Models
         public string Description { get; set; }
     }
 
-    public class RuneStats
+    public class RuneStatsDto
     {
         [JsonProperty(PropertyName = "PercentTimeDeadModPerLevel")]
         public double PercentTimeDeadModPerLevel { get; set; }
@@ -240,7 +240,7 @@ namespace League.of.Legends.API.Models
         public double FlatEXPBonus { get; set; }
     }
 
-    public class MetaData
+    public class MetaDataDto
     {
         [JsonProperty(PropertyName = "tier")]
         public string Tier { get; set; }

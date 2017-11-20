@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace League.of.Legends.API.Models
 {
-    public class ChampionMastery
+    public class ChampionMasteryDto
     {
         /// <summary>
         /// Champion level for specified player and champion combination.
@@ -59,5 +59,5 @@ namespace League.of.Legends.API.Models
         public long LastPlayTime { get; set; }
     }
 
-    public class ChampionMasteries : List<ChampionMastery> { }
+    public class ChampionMasteryDtoList : List<ChampionMasteryDto> { }
 }

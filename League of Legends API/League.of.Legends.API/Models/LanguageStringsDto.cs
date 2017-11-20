@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace League.of.Legends.API.Models
 {
-    public class LanguageStringsData
+    public class LanguageStringsDto
     {
         [JsonProperty(PropertyName = "data")]
         public Dictionary<string, string> Data { get; set; }

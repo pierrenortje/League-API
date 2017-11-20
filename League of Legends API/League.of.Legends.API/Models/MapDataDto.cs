@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 namespace League.of.Legends.API.Models
 {
-    public class MapData
+    public class MapDataDto
     {
         [DeserializeAs(Name = "data")]
-        public MapDetails Data { get; set; }
+        public MapDetailsDto Data { get; set; }
 
         [DeserializeAs(Name = "type")]
         public string Type { get; set; }
@@ -16,13 +16,13 @@ namespace League.of.Legends.API.Models
         public string Version { get; set; }
     }
 
-    public class MapDetails
+    public class MapDetailsDto
     {
         [JsonProperty(PropertyName = "mapName")]
         public string MapName { get; set; }
 
         [JsonProperty(PropertyName = "image")]
-        public Image Image { get; set; }
+        public ImageDto Image { get; set; }
 
         [JsonProperty(PropertyName = "mapId")]
         public long MapId { get; set; }

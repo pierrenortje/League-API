@@ -1,22 +1,18 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace League.of.Legends.API.Models
 {
-    public class ItemData
+    public class ItemListDto
     {
         [JsonProperty(PropertyName = "data")]
-        public Dictionary<string, Item> Data { get; set; }
+        public Dictionary<string, ItemDto> Data { get; set; }
 
         [JsonProperty(PropertyName = "version")]
         public string Version { get; set; }
 
         [JsonProperty(PropertyName = "tree")]
-        public ItemTrees Trees { get; set; }
+        public ItemTreeDtoList Trees { get; set; }
 
         [JsonProperty(PropertyName = "groups")]
         public ItemGroups Groups { get; set; }
@@ -25,10 +21,20 @@ namespace League.of.Legends.API.Models
         public string Type { get; set; }
     }
 
-    public class Item
+    public class ItemTreeDto
+    {
+        [JsonProperty(PropertyName = "header")]
+        public string Header { get; set; }
+
+        [JsonProperty(PropertyName = "tags")]
+        public List<string> Tags { get; set; }
+    }
+    public class ItemTreeDtoList : List<ItemTreeDto> { }
+
+    public class ItemDto
     {
         [JsonProperty(PropertyName = "gold")]
-        public Gold Gold { get; set; }
+        public GoldDto Gold { get; set; }
 
         [JsonProperty(PropertyName = "plaintext")]
         public string PlainText { get; set; }
@@ -46,7 +52,7 @@ namespace League.of.Legends.API.Models
         public int ID { get; set; }
 
         [JsonProperty(PropertyName = "stats")]
-        public InventoryDataStats Stats { get; set; }
+        public InventoryDataStatsDto Stats { get; set; }
 
         [JsonProperty(PropertyName = "colloq")]
         public string Colloq { get; set; }
@@ -58,7 +64,7 @@ namespace League.of.Legends.API.Models
         public int SpecialRecipe { get; set; }
 
         [JsonProperty(PropertyName = "image")]
-        public Image Image { get; set; }
+        public ImageDto Image { get; set; }
 
         [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }
@@ -94,7 +100,7 @@ namespace League.of.Legends.API.Models
         public int Depth { get; set; }
 
         [JsonProperty(PropertyName = "stacks")]
-        public int stacks { get; set; }
+        public int Stacks { get; set; }
     }
 
     public class ItemGroup
@@ -107,17 +113,7 @@ namespace League.of.Legends.API.Models
     }
     public class ItemGroups : List<ItemGroup> { }
 
-    public class ItemTree
-    {
-        [JsonProperty(PropertyName = "header")]
-        public string Header { get; set; }
-
-        [JsonProperty(PropertyName = "tags")]
-        public List<string> Tags { get; set; }
-    }
-    public class ItemTrees : List<ItemTree> { }
-
-    public class Gold
+    public class GoldDto
     {
         [JsonProperty(PropertyName = "sell")]
         public int Sell { get; set; }
@@ -132,7 +128,7 @@ namespace League.of.Legends.API.Models
         public bool Purchasable { get; set; }
     }
 
-    public class InventoryDataStats
+    public class InventoryDataStatsDto
     {
         [JsonProperty(PropertyName = "PercentCritDamageMod")]
         public double PercentCritDamageMod { get; set; }

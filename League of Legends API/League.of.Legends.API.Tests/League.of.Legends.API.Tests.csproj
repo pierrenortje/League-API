@@ -48,11 +48,12 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LeagueChampion.cs" />
-    <Compile Include="LeagueChampionMastery.cs" />
-    <Compile Include="LeagueLeague.cs" />
-    <Compile Include="LeagueStaticData.cs" />
+    <Compile Include="ChampionRequestTests.cs" />
+    <Compile Include="ChampionMasteryRequestTests.cs" />
+    <Compile Include="LeagueRequestTests.cs" />
+    <Compile Include="StaticDataRequestTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
