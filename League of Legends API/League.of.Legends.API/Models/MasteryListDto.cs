@@ -17,47 +17,4 @@ namespace League.of.Legends.API.Models
         [JsonProperty(PropertyName = "type")]
         public string Type { get; set; }
     }
-
-    public class MasteryDto
-    {
-        [JsonProperty(PropertyName = "prereq")]
-        public string Prereq { get; set; }
-
-        [JsonProperty(PropertyName = "masteryTree")]
-        public string MasteryTree { get; set; }
-
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
-
-        [JsonProperty(PropertyName = "ranks")]
-        public int Ranks { get; set; }
-
-        [JsonProperty(PropertyName = "image")]
-        public ImageDto Image { get; set; }
-
-        [JsonProperty(PropertyName = "sanitizedDescription")]
-        public List<string> SanitizedDescription { get; set; }
-
-        [JsonProperty(PropertyName = "id")]
-        public int ID { get; set; }
-
-        [JsonProperty(PropertyName = "description")]
-        public List<string> description { get; set; }
-    }
-
-    public class MasteryTreeListDto
-    {
-        [JsonProperty(PropertyName = "masteryTreeItems")]
-        public MasteryTreeItemDtoList MasteryTreeItems { get; set; }
-    }
-
-    public class MasteryTreeItemDto
-    {
-        [JsonProperty(PropertyName = "masteryId")]
-        public int MasteryId { get; set; }
-
-        [JsonProperty(PropertyName = "prereq")]
-        public string Prereq { get; set; }
-    }
-    public class MasteryTreeItemDtoList : List<MasteryTreeItemDto> { }
 }

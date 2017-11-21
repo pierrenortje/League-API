@@ -13,7 +13,6 @@ namespace League.of.Legends.API.Requests
         public async Task<ChampionListDto> SelectChampionsDetails(Locale? locale = null, string version = null, ChampionListTags[] tags = null, bool? dataById = null)
         {
             var request = new RestRequest("static-data/v3/champions", Method.GET);
-            request.AddHeader("X-Riot-Token", this.apiKey);
 
             if (locale.HasValue)
                 request.AddParameter("locale", locale.ToString());
@@ -28,19 +27,12 @@ namespace League.of.Legends.API.Requests
             if (dataById.HasValue)
                 request.AddParameter("dataById", dataById.ToString().ToLower());
 
-            var response = await base.restClient.ExecuteTaskAsync(request);
-            var responseObj = Newtonsoft.Json.JsonConvert.DeserializeObject<ChampionListDto>(response.Content);
-
-            base.StatusDescription = response.StatusDescription;
-            base.StatusCode = response.StatusCode;
-
-            return responseObj;
+            return await base.ExecuteGet<ChampionListDto>(request, true);
         }
 
         public async Task<ChampionDto> GetChampionDetailsByID(int id, Locale? locale = null, string version = null, ChampionTags[] tags = null)
         {
             var request = new RestRequest($"static-data/v3/champions/{id}", Method.GET);
-            request.AddHeader("X-Riot-Token", this.apiKey);
 
             request.AddParameter("id", id);
 
@@ -54,19 +46,12 @@ namespace League.of.Legends.API.Requests
                 foreach (var tag in tags)
                     request.AddParameter("tags", tag.ToString());
 
-            var response = await base.restClient.ExecuteTaskAsync(request);
-            var responseObj = Newtonsoft.Json.JsonConvert.DeserializeObject<ChampionDto>(response.Content);
-
-            base.StatusDescription = response.StatusDescription;
-            base.StatusCode = response.StatusCode;
-
-            return responseObj;
+            return await base.ExecuteGet<ChampionDto>(request, true);
         }
 
         public async Task<ItemListDto> SelectItemsDetails(Locale? locale = null, string version = null, ItemTags[] tags = null)
         {
             var request = new RestRequest("static-data/v3/items", Method.GET);
-            request.AddHeader("X-Riot-Token", this.apiKey);
 
             if (locale.HasValue)
                 request.AddParameter("locale", locale.ToString());
@@ -78,19 +63,12 @@ namespace League.of.Legends.API.Requests
                 foreach (var tag in tags)
                     request.AddParameter("tags", tag.ToString());
 
-            var response = await base.restClient.ExecuteTaskAsync(request);
-            var responseObj = Newtonsoft.Json.JsonConvert.DeserializeObject<ItemListDto>(response.Content);
-
-            base.StatusDescription = response.StatusDescription;
-            base.StatusCode = response.StatusCode;
-
-            return responseObj;
+            return await base.ExecuteGet<ItemListDto>(request, true);
         }
 
         public async Task<ItemDto> GetItemDetailsByID(int id, Locale? locale = null, string version = null, ItemTags[] tags = null)
         {
             var request = new RestRequest($"static-data/v3/items/{id}", Method.GET);
-            request.AddHeader("X-Riot-Token", this.apiKey);
 
             if (locale.HasValue)
                 request.AddParameter("locale", locale.ToString());
@@ -102,19 +80,12 @@ namespace League.of.Legends.API.Requests
                 foreach (var tag in tags)
                     request.AddParameter("tags", tag.ToString());
 
-            var response = await base.restClient.ExecuteTaskAsync(request);
-            var responseObj = Newtonsoft.Json.JsonConvert.DeserializeObject<ItemDto>(response.Content);
-
-            base.StatusDescription = response.StatusDescription;
-            base.StatusCode = response.StatusCode;
-
-            return responseObj;
+            return await base.ExecuteGet<ItemDto>(request, true);
         }
 
         public async Task<LanguageStringsDto> GetLanguageStrings(Locale? locale = null, string version = null)
         {
             var request = new RestRequest("static-data/v3/language-strings", Method.GET);
-            request.AddHeader("X-Riot-Token", this.apiKey);
 
             if (locale.HasValue)
                 request.AddParameter("locale", locale.ToString());
@@ -122,26 +93,14 @@ namespace League.of.Legends.API.Requests
             if (!string.IsNullOrEmpty(version))
                 request.AddParameter("version", version);
 
-            var response = await base.restClient.ExecuteTaskAsync(request);
-            var responseObj = Newtonsoft.Json.JsonConvert.DeserializeObject<LanguageStringsDto>(response.Content);
-
-            base.StatusDescription = response.StatusDescription;
-            base.StatusCode = response.StatusCode;
-
-            return responseObj;
+            return await base.ExecuteGet<LanguageStringsDto>(request, true);
         }
 
         public async Task<List<string>> SelectLanguages()
         {
             var request = new RestRequest("static-data/v3/languages", Method.GET);
-            request.AddHeader("X-Riot-Token", this.apiKey);
 
-            var response = await base.restClient.ExecuteTaskAsync<List<string>>(request);
-
-            base.StatusDescription = response.StatusDescription;
-            base.StatusCode = response.StatusCode;
-
-            return response.Data;
+            return await base.ExecuteGet<List<string>>(request);
         }
 
         public async Task<MapDataDto> SelectMaps(Locale? locale = null, string version = null)
@@ -151,7 +110,6 @@ namespace League.of.Legends.API.Requests
             // Also, map data was not generated for patch versions 5.15.1, 5.16.1, and 5.17.1.
 
             var request = new RestRequest("static-data/v3/language-strings", Method.GET);
-            request.AddHeader("X-Riot-Token", this.apiKey);
 
             if (locale.HasValue)
                 request.AddParameter("locale", locale.ToString());
@@ -159,18 +117,12 @@ namespace League.of.Legends.API.Requests
             if (!string.IsNullOrEmpty(version))
                 request.AddParameter("version", version);
 
-            var response = await base.restClient.ExecuteTaskAsync<MapDataDto>(request);
-
-            base.StatusDescription = response.StatusDescription;
-            base.StatusCode = response.StatusCode;
-
-            return response.Data;
+            return await base.ExecuteGet<MapDataDto>(request);
         }
 
         public async Task<MasteryListDto> SelectMasteries(Locale? locale = null, string version = null)
         {
             var request = new RestRequest("static-data/v3/masteries", Method.GET);
-            request.AddHeader("X-Riot-Token", this.apiKey);
 
             if (locale.HasValue)
                 request.AddParameter("locale", locale.ToString());
@@ -178,19 +130,12 @@ namespace League.of.Legends.API.Requests
             if (!string.IsNullOrEmpty(version))
                 request.AddParameter("version", version);
 
-            var response = await base.restClient.ExecuteTaskAsync(request);
-            var responseObj = Newtonsoft.Json.JsonConvert.DeserializeObject<MasteryListDto>(response.Content);
-
-            base.StatusDescription = response.StatusDescription;
-            base.StatusCode = response.StatusCode;
-
-            return responseObj;
+            return await base.ExecuteGet<MasteryListDto>(request, true);
         }
 
         public async Task<MasteryDto> GetMasteryByID(int id, Locale? locale = null, string version = null)
         {
             var request = new RestRequest($"static-data/v3/masteries/{id}", Method.GET);
-            request.AddHeader("X-Riot-Token", this.apiKey);
 
             if (locale.HasValue)
                 request.AddParameter("locale", locale.ToString());
@@ -198,19 +143,12 @@ namespace League.of.Legends.API.Requests
             if (!string.IsNullOrEmpty(version))
                 request.AddParameter("version", version);
 
-            var response = await base.restClient.ExecuteTaskAsync(request);
-            var responseObj = Newtonsoft.Json.JsonConvert.DeserializeObject<MasteryDto>(response.Content);
-
-            base.StatusDescription = response.StatusDescription;
-            base.StatusCode = response.StatusCode;
-
-            return responseObj;
+            return await base.ExecuteGet<MasteryDto>(request, true);
         }
 
         public async Task<ProfileIconDataDto> SelectProfileIcons(Locale? locale = null, string version = null)
         {
             var request = new RestRequest("static-data/v3/profile-icons", Method.GET);
-            request.AddHeader("X-Riot-Token", this.apiKey);
 
             if (locale.HasValue)
                 request.AddParameter("locale", locale.ToString());
@@ -218,60 +156,33 @@ namespace League.of.Legends.API.Requests
             if (!string.IsNullOrEmpty(version))
                 request.AddParameter("version", version);
 
-            var response = await base.restClient.ExecuteTaskAsync<ProfileIconDataDto>(request);
-
-            base.StatusDescription = response.StatusDescription;
-            base.StatusCode = response.StatusCode;
-
-            return response.Data;
+            return await base.ExecuteGet<ProfileIconDataDto>(request);
         }
 
         public async Task<Realm> GetRealm()
         {
             var request = new RestRequest("static-data/v3/realms", Method.GET);
-            request.AddHeader("X-Riot-Token", this.apiKey);
 
-            var response = await base.restClient.ExecuteTaskAsync(request);
-            var responseObj = Newtonsoft.Json.JsonConvert.DeserializeObject<Realm>(response.Content);
-
-            base.StatusDescription = response.StatusDescription;
-            base.StatusCode = response.StatusCode;
-
-            return responseObj;
+            return await base.ExecuteGet<Realm>(request, true);
         }
 
         public async Task<RuneListDto> SelectRunes()
         {
             var request = new RestRequest("static-data/v3/runes", Method.GET);
-            request.AddHeader("X-Riot-Token", this.apiKey);
 
-            var response = await base.restClient.ExecuteTaskAsync(request);
-            var responseObj = Newtonsoft.Json.JsonConvert.DeserializeObject<RuneListDto>(response.Content);
-
-            base.StatusDescription = response.StatusDescription;
-            base.StatusCode = response.StatusCode;
-
-            return responseObj;
+            return await base.ExecuteGet<RuneListDto>(request, true);
         }
 
         public async Task<RuneDto> GetRuneByID(int id)
         {
             var request = new RestRequest($"static-data/v3/runes/{id}", Method.GET);
-            request.AddHeader("X-Riot-Token", this.apiKey);
 
-            var response = await base.restClient.ExecuteTaskAsync(request);
-            var responseObj = Newtonsoft.Json.JsonConvert.DeserializeObject<RuneDto>(response.Content);
-
-            base.StatusDescription = response.StatusDescription;
-            base.StatusCode = response.StatusCode;
-
-            return responseObj;
+            return await base.ExecuteGet<RuneDto>(request, true);
         }
 
         public async Task<SummonerSpellListDto> SelectSummonerSpells(Locale? locale = null, string version = null, bool? dataById = null, SpellTags[] tags = null)
         {
             var request = new RestRequest("static-data/v3/summoner-spells", Method.GET);
-            request.AddHeader("X-Riot-Token", this.apiKey);
 
             if (locale.HasValue)
                 request.AddParameter("locale", locale.ToString());
@@ -286,19 +197,12 @@ namespace League.of.Legends.API.Requests
                 foreach (var tag in tags)
                     request.AddParameter("tags", tag.ToString());
 
-            var response = await base.restClient.ExecuteTaskAsync(request);
-            var responseObj = Newtonsoft.Json.JsonConvert.DeserializeObject<SummonerSpellListDto>(response.Content);
-
-            base.StatusDescription = response.StatusDescription;
-            base.StatusCode = response.StatusCode;
-
-            return responseObj;
+            return await base.ExecuteGet<SummonerSpellListDto>(request, true);
         }
 
         public async Task<SummonerSpellDto> GetSummonerSpellByID(int id, Locale? locale = null, string version = null, bool? dataById = null, SpellTags[] tags = null)
         {
             var request = new RestRequest($"static-data/v3/summoner-spells/{id}", Method.GET);
-            request.AddHeader("X-Riot-Token", this.apiKey);
 
             if (locale.HasValue)
                 request.AddParameter("locale", locale.ToString());
@@ -313,26 +217,14 @@ namespace League.of.Legends.API.Requests
                 foreach (var tag in tags)
                     request.AddParameter("tags", tag.ToString());
 
-            var response = await base.restClient.ExecuteTaskAsync(request);
-            var responseObj = Newtonsoft.Json.JsonConvert.DeserializeObject<SummonerSpellDto>(response.Content);
-
-            base.StatusDescription = response.StatusDescription;
-            base.StatusCode = response.StatusCode;
-
-            return responseObj;
+            return await base.ExecuteGet<SummonerSpellDto>(request, true);
         }
 
         public async Task<List<string>> SelectVersions()
         {
             var request = new RestRequest("static-data/v3/versions", Method.GET);
-            request.AddHeader("X-Riot-Token", this.apiKey);
 
-            var response = await base.restClient.ExecuteTaskAsync<List<string>>(request);
-
-            base.StatusDescription = response.StatusDescription;
-            base.StatusCode = response.StatusCode;
-
-            return response.Data;
+            return await base.ExecuteGet<List<string>>(request);
         }
     }
 }

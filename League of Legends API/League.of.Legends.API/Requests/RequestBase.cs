@@ -25,7 +25,7 @@ namespace League.of.Legends.API.Requests
         #endregion
 
         #region Protected Methods
-        protected async Task<TResponseType> ExecuteGet<TResponseType>(IRestRequest request)
+        protected async Task<TResponseType> ExecuteGet<TResponseType>(IRestRequest request, bool customDeserialize = false)
         {
             request.AddHeader("X-Riot-Token", this.apiKey);
 
@@ -34,6 +34,8 @@ namespace League.of.Legends.API.Requests
             StatusDescription = response.StatusDescription;
             StatusCode = response.StatusCode;
 
+            if (customDeserialize)
+                return Newtonsoft.Json.JsonConvert.DeserializeObject<TResponseType>(response.Content);
             return response.Data;
         }
         #endregion

@@ -17,6 +17,5 @@ namespace League.of.Legends.API.Models
         [DeserializeAs(Name = "gameList")]
         public FeaturedGamesList GameList { get; set; }
     }
-
     public class FeaturedGamesList : List<CurrentGameInfo> { }
 }

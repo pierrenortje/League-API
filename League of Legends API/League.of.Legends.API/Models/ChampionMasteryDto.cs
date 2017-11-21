@@ -58,6 +58,5 @@ namespace League.of.Legends.API.Models
         [DeserializeAs(Name = "lastPlayTime")]
         public long LastPlayTime { get; set; }
     }
-
     public class ChampionMasteryDtoList : List<ChampionMasteryDto> { }
 }

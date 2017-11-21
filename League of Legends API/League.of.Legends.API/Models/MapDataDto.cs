@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-using RestSharp.Deserializers;
-using System.Collections.Generic;
+﻿using RestSharp.Deserializers;
 
 namespace League.of.Legends.API.Models
 {
@@ -14,20 +12,5 @@ namespace League.of.Legends.API.Models
 
         [DeserializeAs(Name = "version")]
         public string Version { get; set; }
-    }
-
-    public class MapDetailsDto
-    {
-        [JsonProperty(PropertyName = "mapName")]
-        public string MapName { get; set; }
-
-        [JsonProperty(PropertyName = "image")]
-        public ImageDto Image { get; set; }
-
-        [JsonProperty(PropertyName = "mapId")]
-        public long MapId { get; set; }
-
-        [JsonProperty(PropertyName = "unpurchasableItemList")]
-        public List<long> UnpurchasableItemList { get; set; }
     }
 }
