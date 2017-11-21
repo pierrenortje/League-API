@@ -1,5 +1,6 @@
 ﻿using RestSharp;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace League.of.Legends.API.Requests
 {
@@ -21,6 +22,20 @@ namespace League.of.Legends.API.Requests
         #region Public Properties
         public HttpStatusCode StatusCode { get; set; }
         public string StatusDescription { get; set; }
+        #endregion
+
+        #region Protected Methods
+        protected async Task<TResponseType> ExecuteGet<TResponseType>(IRestRequest request)
+        {
+            request.AddHeader("X-Riot-Token", this.apiKey);
+
+            var response = await restClient.ExecuteTaskAsync<TResponseType>(request);
+
+            StatusDescription = response.StatusDescription;
+            StatusCode = response.StatusCode;
+
+            return response.Data;
+        }
         #endregion
     }
 }

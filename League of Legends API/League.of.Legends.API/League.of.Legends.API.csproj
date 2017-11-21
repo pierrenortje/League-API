@@ -51,9 +51,14 @@
     <Compile Include="Interfaces\ILeagueRequest.cs" />
     <Compile Include="Interfaces\IMasteriesRequest.cs" />
     <Compile Include="Interfaces\IMatchRequest.cs" />
+    <Compile Include="Interfaces\IRunesRequest.cs" />
+    <Compile Include="Interfaces\ISpectatorRequest.cs" />
     <Compile Include="Interfaces\IStaticDataRequest.cs" />
     <Compile Include="Interfaces\IStatusRequest.cs" />
+    <Compile Include="Models\CurrentGameInfo.cs" />
+    <Compile Include="Models\FeaturedGames.cs" />
     <Compile Include="Models\LeagueListDto.cs" />
+    <Compile Include="Models\RunePagesDto.cs" />
     <Compile Include="Requests\MatchRequest.cs" />
     <Compile Include="Models\Champion.cs" />
     <Compile Include="Models\ChampionListDto.cs" />
@@ -80,6 +85,8 @@
     <Compile Include="Requests\LeagueRequest.cs" />
     <Compile Include="Requests\MasteriesRequest.cs" />
     <Compile Include="ApiRequest.cs" />
+    <Compile Include="Requests\RunesRequest.cs" />
+    <Compile Include="Requests\SpectatorRequest.cs" />
     <Compile Include="Requests\StaticDataRequest.cs" />
     <Compile Include="Requests\StatusRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

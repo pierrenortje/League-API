@@ -12,14 +12,8 @@ namespace League.of.Legends.API.Requests
         public async Task<MasteryPagesDto> SelectSummonerMasteryPages(string summonerId)
         {
             var request = new RestRequest($"platform/v3/masteries/by-summoner/{summonerId}", Method.GET);
-            request.AddHeader("X-Riot-Token", this.apiKey);
 
-            var response = await base.restClient.ExecuteTaskAsync<MasteryPagesDto>(request);
-
-            base.StatusDescription = response.StatusDescription;
-            base.StatusCode = response.StatusCode;
-
-            return response.Data;
+            return await base.ExecuteGet<MasteryPagesDto>(request);
         }
     }
 }

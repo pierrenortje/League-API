@@ -13,14 +13,8 @@ namespace League.of.Legends.API.Requests
         public async Task<MatchDto> Get(long matchId)
         {
             var request = new RestRequest($"match/v3/matches/{matchId}", Method.GET);
-            request.AddHeader("X-Riot-Token", this.apiKey);
 
-            var response = await base.restClient.ExecuteTaskAsync<MatchDto>(request);
-
-            base.StatusDescription = response.StatusDescription;
-            base.StatusCode = response.StatusCode;
-
-            return response.Data;
+            return await base.ExecuteGet<MatchDto>(request);
         }
 
         public async Task<MatchlistDto> SelectMatchLists(long accountId)
@@ -35,63 +29,36 @@ namespace League.of.Legends.API.Requests
              */
 
             var request = new RestRequest($"match/v3/matchlists/by-account/{accountId}", Method.GET);
-            request.AddHeader("X-Riot-Token", this.apiKey);
 
-            var response = await base.restClient.ExecuteTaskAsync<MatchlistDto>(request);
-
-            return response.Data;
+            return await base.ExecuteGet<MatchlistDto>(request);
         }
 
         public async Task<MatchlistDto> SelectMatchListsRecent(long accountId)
         {
             var request = new RestRequest($"match/v3/matchlists/by-account/{accountId}/recent", Method.GET);
-            request.AddHeader("X-Riot-Token", this.apiKey);
 
-            var response = await base.restClient.ExecuteTaskAsync<MatchlistDto>(request);
-
-            base.StatusDescription = response.StatusDescription;
-            base.StatusCode = response.StatusCode;
-
-            return response.Data;
+            return await base.ExecuteGet<MatchlistDto>(request);
         }
 
         public async Task<MatchTimelineDto> GetTimelineByMatchId(long matchId)
         {
             var request = new RestRequest($"match/v3/timelines/by-match/{matchId}", Method.GET);
-            request.AddHeader("X-Riot-Token", this.apiKey);
 
-            var response = await base.restClient.ExecuteTaskAsync<MatchTimelineDto>(request);
-
-            base.StatusDescription = response.StatusDescription;
-            base.StatusCode = response.StatusCode;
-
-            return response.Data;
+            return await base.ExecuteGet<MatchTimelineDto>(request);
         }
 
         public async Task<List<long>> SelectMatchesByTournamentCode(long tournamentCode)
         {
             var request = new RestRequest($"match/v3/matches/by-tournament-code/{tournamentCode}/ids", Method.GET);
-            request.AddHeader("X-Riot-Token", this.apiKey);
 
-            var response = await base.restClient.ExecuteTaskAsync<List<long>>(request);
-
-            base.StatusDescription = response.StatusDescription;
-            base.StatusCode = response.StatusCode;
-
-            return response.Data;
+            return await base.ExecuteGet<List<long>>(request);
         }
 
         public async Task<MatchDto> GetByMatchIdTournamentCode(long matchId, long tournamentCode)
         {
             var request = new RestRequest($"match/v3/matches/{matchId}/by-tournament-code/{tournamentCode}", Method.GET);
-            request.AddHeader("X-Riot-Token", this.apiKey);
 
-            var response = await base.restClient.ExecuteTaskAsync<MatchDto>(request);
-
-            base.StatusDescription = response.StatusDescription;
-            base.StatusCode = response.StatusCode;
-
-            return response.Data;
+            return await base.ExecuteGet<MatchDto>(request);
         }
     }
 }
