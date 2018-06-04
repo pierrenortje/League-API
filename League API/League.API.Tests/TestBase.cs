@@ -9,7 +9,7 @@ namespace League.API.Tests
         #region Private Fields
         private ApiRequest api;
 
-        private const string apikey = "RGAPI-9351952b-4d49-4676-a031-f30084e2dfb0";
+        private const string apikey = "[YOUR-API-KEY]";
         private const Region region = Region.EUW1;
         #endregion
 
